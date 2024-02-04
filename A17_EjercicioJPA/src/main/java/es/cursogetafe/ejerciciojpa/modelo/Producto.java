@@ -3,12 +3,33 @@ package es.cursogetafe.ejerciciojpa.modelo;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "productos")
 public class Producto implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idProducto;
 	
 	private String producto;
+	
+	@Basic(optional = false)
 	private double precio;
+	
+	@ManyToMany
+	@JoinTable(name = "clientes_productos",
+				joinColumns = @JoinColumn(name ="idproducto"),
+				inverseJoinColumns = @JoinColumn(name = "idrol"))
 	List<Cliente> clientes;
 
 	public int getIdProducto() {

@@ -3,10 +3,21 @@ package es.cursogetafe.ejerciciojpa.modelo;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "clientes")
 public class Cliente extends Rol implements Serializable{
 
+	@Basic(optional = false)
 	private int nroCliente;
+	
 	private String categoria;
+	
+	@ManyToMany(mappedBy = "clientes") //mapeado en clase producto, atributo clientes
 	private List<Producto> productos;
 	
 	public Cliente(){
