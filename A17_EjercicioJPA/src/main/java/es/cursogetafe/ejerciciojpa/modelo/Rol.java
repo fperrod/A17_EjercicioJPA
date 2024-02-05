@@ -28,7 +28,7 @@ public class Rol implements Serializable {
 	@JoinColumn(name ="idpersona")
 	private Persona persona;
 
-	private int getIdRol() {  // metodo publico o privado
+	public int getIdRol() {  
 		return idRol;
 	}
 	

@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente extends Rol implements Serializable{
+public class Cliente extends Rol {
 
 	@Basic(optional = false)
 	private int nroCliente;
