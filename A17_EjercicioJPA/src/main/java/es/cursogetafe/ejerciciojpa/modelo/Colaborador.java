@@ -34,4 +34,11 @@ public class Colaborador extends Rol{
 	public void setServicio(String servicio) {
 		this.servicio = servicio;
 	}
+
+	@Override
+	public String toString() {
+		return "Colaborador [nroProveedor=" + nroProveedor + ", servicio=" + servicio + "]";
+	}
+	
+	
 }
